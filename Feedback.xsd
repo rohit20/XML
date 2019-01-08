@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Name"     type="xs:string" />
+	
+	<xs:element name="Address1" type="xs:string" />
+    
+	<xs:element name="Address2" type="xs:string" />
+    
+	<xs:element name="State"    type="xs:string" />
+    
+	<xs:element name="City"     type="xs:string"/> 
+	
+    
+	<xs:element name="pincode">
+	 <xs:simpleType>
+	 <xs:restriction base= "xs:integer">
+	 <xs:pattern value="[0-9]{6}"/>
+	 </xs:restriction>   
+     </xs:simpleType>
+    </xs:element>  
+
+	
+	<xs:element name="Mobile_Number">
+	 <xs:simpleType>
+	 <xs:restriction base= "xs:integer">
+	 <xs:pattern value="[0-9]{10}"/>
+	 </xs:restriction>   
+     </xs:simpleType>
+    </xs:element>  
+
+    	
+	<xs:element name="Email">
+	 <xs:simpleType>
+	 <xs:restriction base= "xs:string">
+	 <xs:pattern value="[^@]+@[^\.]+\..+"/>
+	 </xs:restriction>   
+     </xs:simpleType>
+    </xs:element>  
+
+    <xs:element name="Select_Car_Model" >
+	 <xs:simpleType>
+	 <xs:restriction base= "xs:string">
+	 <xs:enumeration value="Maruti"/>
+	 <xs:enumeration value="Volvo"/>
+	 <xs:enumeration value="Honda"/>
+	 <xs:enumeration value="Pept"/>
+	 </xs:restriction>
+	 </xs:simpleType> 
+	</xs:element>     
+   
+    <xs:element name="Checkbox" >
+	 <xs:simpleType>
+	 <xs:restriction base= "xs:string">
+	 <xs:enumeration value="Paint"/>
+	 <xs:enumeration value="EngineRepair"/>
+	 <xs:enumeration value="BodyRepair"/>
+	 <xs:enumeration value="FreeService"/>
+	 <xs:enumeration value="PaidService"/>
+	 </xs:restriction>
+	 </xs:simpleType> 
+	</xs:element> 
+
+    <xs:element name="Total_Kilometers_Covered"     type="xs:integer" /> 
+    <xs:element name="Your_Feedback"     type="xs:string" /> 
+ 
+ 
+ 
+    <xs:attribute name="code" type="xs:integer"></xs:attribute>
+ 
+   <!-- definition of Complex elements -->
+    
+	<xs:element name="feedback">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Name" />
+				<xs:element ref="Address1" />
+				<xs:element ref="Address2" />
+				<xs:element ref="State" />
+				<xs:element ref="City" />
+				<xs:element ref="pincode" />
+				<xs:element ref="Mobile_Number" />
+				<xs:element ref="Email" />
+				<xs:element ref="Select_Car_Model" />
+				<xs:element ref="Checkbox" />
+				<xs:element ref="Total_Kilometers_Covered" />
+				<xs:element ref="Your_Feedback" />
+			</xs:sequence>
+			<xs:attribute ref="code" use="required"/>
+		</xs:complexType>
+		
+	</xs:element>
+
+
+
+</xs:schema>
